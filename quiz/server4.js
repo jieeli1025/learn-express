@@ -14,7 +14,7 @@ fs.readFile(path.resolve(__dirname, '../data/users.json'), function(err, data) {
   if(err) throw err;
   users = JSON.parse(data);
 })
-
+// self defined middleware 
 const addMsgToRequest = function (req, res, next) {
   if(users) {
     req.users = users;
@@ -28,6 +28,7 @@ const addMsgToRequest = function (req, res, next) {
   
 }
 
+// security restriction 
 app.use(
   cors({origin: 'http://localhost:3000'})
 );
@@ -41,3 +42,5 @@ app.use('/write', writeUsers);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+module.exports = addMsgToRequest;
+
