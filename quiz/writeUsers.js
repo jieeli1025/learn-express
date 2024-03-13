@@ -3,6 +3,7 @@ const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 
+
 let users;
 fs.readFile(path.resolve(__dirname, '../data/users.json'), (err, data) => {
     if (err) throw err;

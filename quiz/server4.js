@@ -27,8 +27,6 @@ const addMsgToRequest = function (req, res, next) {
   }
   
 }
-
-// security restriction 
 app.use(
   cors({origin: 'http://localhost:3000'})
 );
